@@ -35,7 +35,10 @@
   "bin": {
     "dnsx": "./dist/bin/cli.js"
   },
-  "files": ["README.md", "dist"],
+  "files": [
+    "README.md",
+    "dist"
+  ],
   "scripts": {
     "build": "bun build.ts && bun run compile",
     "compile": "bun build ./bin/cli.ts --compile --minify --outfile bin/dnsx",
@@ -48,8 +51,8 @@
     "fresh": "bunx rimraf node_modules/ bun.lock && bun i",
     "prepublishOnly": "bun --bun run build && bun run compile:all && bun run zip",
     "test": "bun test",
-    "lint": "bunx --bun eslint .",
-    "lint:fix": "bunx --bun eslint . --fix",
+    "lint": "bunx --bun pickier lint .",
+    "lint:fix": "bunx --bun pickier lint . --fix",
     "changelog": "bunx logsmith --verbose",
     "changelog:generate": "bunx logsmith --output CHANGELOG.md",
     "release": "bun run changelog:generate && bunx bumpx prompt --recursive",
@@ -64,11 +67,12 @@
     "zip:linux-arm64": "zip -j bin/dnsx-linux-arm64.zip bin/dnsx-linux-arm64",
     "zip:windows-x64": "zip -j bin/dnsx-windows-x64.zip bin/dnsx-windows-x64.exe",
     "zip:darwin-x64": "zip -j bin/dnsx-darwin-x64.zip bin/dnsx-darwin-x64",
-    "zip:darwin-arm64": "zip -j bin/dnsx-darwin-arm64.zip bin/dnsx-darwin-arm64"
+    "zip:darwin-arm64": "zip -j bin/dnsx-darwin-arm64.zip bin/dnsx-darwin-arm64",
+    "format": "bunx --bun pickier format .",
+    "format:fix": "bunx --bun pickier format . --write"
   },
   "devDependencies": {
     "@stacksjs/docs": "^0.70.23",
-    "@stacksjs/eslint-config": "^4.14.0-beta.3",
     "@stacksjs/tlsx": "^0.10.0",
     "better-dx": "^0.2.3",
     "bumpp": "^10.3.1",
@@ -82,7 +86,7 @@
   "git-hooks": {
     "pre-commit": {
       "staged-lint": {
-        "*.{js,ts,json,yaml,yml,md}": "bunx --bun eslint --fix"
+        "*.{js,ts,json,yaml,yml,md}": "bunx --bun pickier lint --fix"
       }
     },
     "commit-msg": "bunx gitlint --edit .git/COMMIT_EDITMSG"
