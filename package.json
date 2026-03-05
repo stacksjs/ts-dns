@@ -51,8 +51,8 @@
     "fresh": "bunx rimraf node_modules/ bun.lock && bun i",
     "prepublishOnly": "bun --bun run build && bun run compile:all && bun run zip",
     "test": "bun test",
-    "lint": "bunx --bun pickier lint .",
-    "lint:fix": "bunx --bun pickier lint . --fix",
+    "lint": "bunx --bun pickier .",
+    "lint:fix": "bunx --bun pickier . --fix",
     "changelog": "bunx logsmith --verbose",
     "changelog:generate": "bunx logsmith --output CHANGELOG.md",
     "release": "bun --bun run changelog:generate && bunx --bun bumpx prompt --recursive",
@@ -68,8 +68,8 @@
     "zip:windows-x64": "zip -j bin/dnsx-windows-x64.zip bin/dnsx-windows-x64.exe",
     "zip:darwin-x64": "zip -j bin/dnsx-darwin-x64.zip bin/dnsx-darwin-x64",
     "zip:darwin-arm64": "zip -j bin/dnsx-darwin-arm64.zip bin/dnsx-darwin-arm64",
-    "format": "bunx --bun pickier format .",
-    "format:fix": "bunx --bun pickier format . --write"
+    "format": "bunx --bun pickier . --format",
+    "format:fix": "bunx --bun pickier . --format --write"
   },
   "devDependencies": {
     "@stacksjs/docs": "^0.70.23",
