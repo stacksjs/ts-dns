@@ -2,7 +2,7 @@
 
 ## About
 
-A command-line & library DNS client. Like dig & dog, but for TypeScript.
+A dependency-free, minimal DNS client for TypeScript, usable both as a CLI and a library. It supports querying any DNS record type (A, AAAA, MX, TXT, NS, etc.) over multiple transport protocols (UDP, TCP, DNS-over-TLS, DNS-over-HTTPS). The CLI provides colorized output with optional JSON format, short output mode, and EDNS support. The library exposes a `DnsClient` class that accepts domain, record type, nameserver, and transport configuration.
 
 ## Linting
 
