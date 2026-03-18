@@ -73,7 +73,7 @@
   },
   "devDependencies": {
     "@stacksjs/docs": "^0.70.23",
-    "@stacksjs/tlsx": "^0.10.0",
+    "@stacksjs/tlsx": "^0.13.0",
     "better-dx": "^0.2.7",
     "bumpp": "^10.3.1",
     "@stacksjs/clapp": "^0.2.0",
