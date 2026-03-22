@@ -10,6 +10,7 @@
         "@stacksjs/tlsx": "^0.10.0",
         "better-dx": "^0.2.7",
         "bumpp": "^10.3.1",
+        "picocolors": "^1.1.1",
       },
     },
   },
@@ -229,6 +230,8 @@
     "perfect-debounce": ["perfect-debounce@2.1.0", "", {}, "sha512-LjgdTytVFXeUgtHZr9WYViYSM/g8MkcTPYDlPa3cDqMirHjKiSZPYd6DoL7pK8AJQr+uWkQvCjHNdiMqsrJs+g=="],
 
     "pickier": ["pickier@0.1.20", "", { "dependencies": { "@stacksjs/clapp": "^0.2.0", "p-limit": "^7.2.0", "tinyglobby": "^0.2.15" }, "bin": { "pickier": "./dist/bin/cli.js" } }, "sha512-IC95MIW4hv4/b64HMQjv/VbtvTMUz2uX7qqqcJwaAg5fJecETSx/fZLVoFSeGAEtpzADW5n09BevV4XErNzgLg=="],
+
+    "picocolors": ["picocolors@1.1.1", "", {}, "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA=="],
 
     "picomatch": ["picomatch@4.0.3", "", {}, "sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q=="],
 
