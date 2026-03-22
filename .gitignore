@@ -16,3 +16,5 @@ storage
 bin/dnsx
 bin/dnsx*
 /pantry
+.zed
+.cursor
