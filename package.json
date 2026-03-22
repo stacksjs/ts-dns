@@ -72,16 +72,11 @@
     "format:fix": "bunx --bun pickier . --format --write"
   },
   "devDependencies": {
-    "@stacksjs/docs": "^0.70.23",
+    "@stacksjs/bunpress": "^0.1.4",
     "@stacksjs/tlsx": "^0.10.0",
     "better-dx": "^0.2.7",
     "bumpp": "^10.3.1",
-    "@stacksjs/clapp": "^0.2.0",
-    "changelogen": "^0.6.2",
-    "consola": "^3.4.2"
-  },
-  "overrides": {
-    "unconfig": "0.3.10"
+    "@stacksjs/clapp": "^0.2.0"
   },
   "git-hooks": {
     "pre-commit": {
