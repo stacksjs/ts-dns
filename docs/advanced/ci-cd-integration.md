@@ -14,20 +14,24 @@ on:
   push:
     branches: [main]
   schedule:
+
     - cron: '0 */6 * * *'  # Every 6 hours
 
 jobs:
   dns-check:
     runs-on: ubuntu-latest
     steps:
+
       - uses: actions/checkout@v4
 
       - uses: oven-sh/setup-bun@v1
 
       - name: Install dnsx
+
         run: bun add -g @stacksjs/dnsx
 
       - name: Check DNS records
+
         run: |
           dnsx example.com -t A -J > dns-results.json
           cat dns-results.json
@@ -39,8 +43,9 @@ jobs:
 name: Verify DNS
 
 on:
-  pull_request:
+  pull*request:
     paths:
+
       - 'terraform/**'
       - 'dns/**'
 
@@ -48,26 +53,30 @@ jobs:
   verify-dns:
     runs-on: ubuntu-latest
     steps:
+
       - uses: actions/checkout@v4
 
       - uses: oven-sh/setup-bun@v1
 
       - name: Install dnsx
+
         run: bun add @stacksjs/dnsx
 
       - name: Verify A records
-        run: |
-          EXPECTED_IP="93.184.216.34"
-          ACTUAL_IP=$(bunx dnsx example.com -t A -1 -J | jq -r '.answers[0].data')
 
-          if [ "$ACTUAL_IP" != "$EXPECTED_IP" ]; then
-            echo "DNS mismatch! Expected $EXPECTED_IP, got $ACTUAL_IP"
+        run: |
+          EXPECTED*IP="93.184.216.34"
+          ACTUAL*IP=$(bunx dnsx example.com -t A -1 -J | jq -r '.answers[0].data')
+
+          if [ "$ACTUAL*IP" != "$EXPECTED*IP" ]; then
+            echo "DNS mismatch! Expected $EXPECTED*IP, got $ACTUAL*IP"
             exit 1
           fi
 
-          echo "DNS verified: $ACTUAL_IP"
+          echo "DNS verified: $ACTUAL*IP"
 
       - name: Verify MX records
+
         run: |
           bunx dnsx example.com -t MX -J | jq '.answers'
 ```
@@ -78,12 +87,12 @@ jobs:
 name: DNS Migration Check
 
 on:
-  workflow_dispatch:
+  workflow*dispatch:
     inputs:
       domain:
         description: 'Domain to check'
         required: true
-      expected_ip:
+      expected*ip:
         description: 'Expected IP address'
         required: true
 
@@ -91,12 +100,15 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
+
       - uses: oven-sh/setup-bun@v1
 
       - name: Install dnsx
+
         run: bun add -g @stacksjs/dnsx
 
       - name: Check propagation
+
         run: |
           RESOLVERS=("1.1.1.1" "8.8.8.8" "9.9.9.9")
 
@@ -104,10 +116,10 @@ jobs:
             echo "Checking $resolver..."
             IP=$(dnsx ${{ inputs.domain }} -t A @$resolver -1 -J | jq -r '.answers[0].data')
 
-            if [ "$IP" == "${{ inputs.expected_ip }}" ]; then
+            if [ "$IP" == "${{ inputs.expected*ip }}" ]; then
               echo "  OK: $IP"
             else
-              echo "  MISMATCH: expected ${{ inputs.expected_ip }}, got $IP"
+              echo "  MISMATCH: expected ${{ inputs.expected*ip }}, got $IP"
             fi
           done
 ```
@@ -122,8 +134,10 @@ dns-check:
   image: oven/bun:latest
   stage: test
   script:
+
     - bun add -g @stacksjs/dnsx
     - dnsx $DOMAIN -t A -J
+
   variables:
     DOMAIN: example.com
 ```
@@ -135,10 +149,14 @@ dns-monitoring:
   image: oven/bun:latest
   stage: monitor
   only:
+
     - schedules
+
   script:
+
     - bun add -g @stacksjs/dnsx
     - |
+
       DOMAINS="example.com api.example.com cdn.example.com"
       for domain in $DOMAINS; do
         echo "Checking $domain..."
@@ -155,26 +173,36 @@ version: 2.1
 jobs:
   dns-check:
     docker:
+
       - image: oven/bun:latest
+
     steps:
+
       - checkout
       - run:
+
           name: Install dnsx
           command: bun add -g @stacksjs/dnsx
+
       - run:
+
           name: Check DNS
           command: dnsx example.com -t A -J
 
 workflows:
   dns-monitoring:
     triggers:
+
       - schedule:
+
           cron: "0 0 * * *"
           filters:
             branches:
               only: main
     jobs:
+
       - dns-check
+
 ```
 
 ## Jenkins
@@ -361,12 +389,16 @@ spec:
       template:
         spec:
           containers:
+
             - name: dnsx
+
               image: oven/bun:latest
               command:
+
                 - /bin/sh
                 - -c
                 - |
+
                   bun add -g @stacksjs/dnsx
                   dnsx example.com -t A -J
           restartPolicy: OnFailure
@@ -381,13 +413,13 @@ import { DnsClient } from '@stacksjs/dnsx'
 import { Counter, Histogram, register } from 'prom-client'
 
 const dnsQueryDuration = new Histogram({
-  name: 'dns_query_duration_seconds',
+  name: 'dns*query*duration*seconds',
   help: 'DNS query duration',
   labelNames: ['domain', 'type', 'status'],
 })
 
 const dnsQueryErrors = new Counter({
-  name: 'dns_query_errors_total',
+  name: 'dns*query*errors*total',
   help: 'DNS query errors',
   labelNames: ['domain', 'type'],
 })

@@ -1,6 +1,5 @@
 # Changelog
 
-
 ## v0.2.1...v0.2.1
 
 [compare changes](https://github.com/stacksjs/dnsx/compare/v0.2.1...v0.2.1)
@@ -53,7 +52,6 @@
 
 ## ...main
 
-
 ### 🏡 Chore
 
 - Initial commit ([029a195](https://github.com/stacksjs/dnsx/commit/029a195))
@@ -74,7 +72,6 @@
 - Chris ([@chrisbbreuer](http://github.com/chrisbbreuer))
 
 ## ...main
-
 
 ### 🏡 Chore
 

@@ -249,7 +249,7 @@ dnsx example.com -J -t A -t AAAA | jq '.answers | group_by(.type)'
 ### With Scripts
 
 ```bash
-#!/bin/bash
+# !/bin/bash
 # Check if domain resolves
 IP=$(dnsx example.com -J -1 | jq -r '.answers[0].data // empty')
 
@@ -265,7 +265,9 @@ fi
 
 ```yaml
 # GitHub Actions example
+
 - name: Check DNS
+
   run: |
     RESULT=$(dnsx ${{ env.DOMAIN }} -J -t A)
     IP=$(echo $RESULT | jq -r '.answers[0].data')
