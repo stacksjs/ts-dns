@@ -74,9 +74,9 @@
   "devDependencies": {
     "@stacksjs/bunpress": "^0.1.4",
     "@stacksjs/clapp": "^0.2.0",
-    "@stacksjs/tlsx": "^0.10.0",
+    "@stacksjs/tlsx": "^0.13.0",
     "better-dx": "^0.2.7",
-    "bumpp": "^10.3.1",
+    "bumpp": "^10.4.1",
     "picocolors": "^1.1.1"
   },
   "git-hooks": {
