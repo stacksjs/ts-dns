@@ -41,7 +41,7 @@ export class DnsClient {
    * - Start/end dots
    * - Overall length (max 253 characters)
    * - Label length (max 63 characters)
-   * - Valid characters (a-z, 0-9, -)
+   * - Valid characters (a-z, 0-9, -, _)
    *
    * @param domain - The domain name to validate
    * @throws {Error} If the domain name is invalid
@@ -70,7 +70,7 @@ export class DnsClient {
       }
 
       // Check label characters
-      if (!/^[a-z0-9-]+$/i.test(label)) {
+      if (!/^[a-z0-9_-]+$/i.test(label)) {
         throw new Error(`Invalid characters in domain label: ${label}`)
       }
     }
