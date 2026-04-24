@@ -187,6 +187,23 @@ describe('DnsClient', () => {
       })).toThrow()
     })
 
+    it('should accept underscores in domain labels (DKIM, DMARC, SRV)', () => {
+      expect(() => new DnsClient({
+        domains: ['selector1._domainkey.example.com'],
+        type: 'TXT',
+      })).not.toThrow()
+
+      expect(() => new DnsClient({
+        domains: ['_dmarc.example.com'],
+        type: 'TXT',
+      })).not.toThrow()
+
+      expect(() => new DnsClient({
+        domains: ['_sip._tcp.example.com'],
+        type: 'SRV',
+      })).not.toThrow()
+    })
+
     it('should handle invalid record types', () => {
       expect(() => new DnsClient({
         domains: ['example.com'],
