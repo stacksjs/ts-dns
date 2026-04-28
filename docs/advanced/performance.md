@@ -129,7 +129,7 @@ async function parallelQuery(domain: string) {
   )
 
   const results = await Promise.all(queries)
-  return results.filter(Boolean)[0]
+  return results.filter(Boolean).at(0)
 }
 ```
 
