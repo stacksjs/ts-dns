@@ -161,11 +161,18 @@ describe('DnsClient', () => {
     })
 
     it('should work with different transport types', async () => {
-      for (const transport of [TransportType.UDP, TransportType.TCP, TransportType.TLS, TransportType.HTTPS]) {
+      const cases: Array<{ transport: TransportType, nameserver: string }> = [
+        { transport: TransportType.UDP, nameserver: '1.1.1.1' },
+        { transport: TransportType.TCP, nameserver: '1.1.1.1' },
+        { transport: TransportType.TLS, nameserver: '1.1.1.1' },
+        // DoH requires a URL with hostname (TLS servername cannot be an IP)
+        { transport: TransportType.HTTPS, nameserver: 'https://cloudflare-dns.com/dns-query' },
+      ]
+      for (const { transport, nameserver } of cases) {
         client = new DnsClient({
           domains: ['example.com'],
           type: 'A',
-          nameserver: '1.1.1.1',
+          nameserver,
           transport: { type: transport },
         })
 

@@ -203,11 +203,14 @@ class TLSTransport implements Transport {
 
   async query(nameserver: string, request: Buffer): Promise<Buffer> {
     return new Promise((resolve, reject) => {
-      const options = {
-        host: nameserver.split(':')[0],
-        port: Number(nameserver.split(':')[1]) || TLSTransport.DEFAULT_PORT,
-        servername: nameserver.split(':')[0], // Required for SNI
-      }
+      const host = nameserver.split(':')[0]
+      const port = Number(nameserver.split(':')[1]) || TLSTransport.DEFAULT_PORT
+      // SNI servername must not be an IP literal (TLS spec / Node rejects it).
+      // For IP-only DoT targets, omit servername; cert validation will go by IP SAN.
+      const isIp = /^(?:\d{1,3}\.){3}\d{1,3}$/.test(host) || host.includes(':')
+      const options = isIp
+        ? { host, port }
+        : { host, port, servername: host }
 
       let timeoutId: ReturnType<typeof setTimeout>
 
