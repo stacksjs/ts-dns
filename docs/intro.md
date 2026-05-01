@@ -214,4 +214,3 @@ Made with 💙
 <!-- Badges -->
 
 <!-- [codecov-src]: https://img.shields.io/codecov/c/gh/stacksjs/dnsx/main?style=flat-square
-[codecov-href]: https://codecov.io/gh/stacksjs/dnsx -->
