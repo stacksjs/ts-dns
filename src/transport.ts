@@ -2,6 +2,7 @@ import { Buffer } from 'node:buffer'
 import dgram from 'node:dgram'
 import https from 'node:https'
 import net from 'node:net'
+import { isIP } from 'node:net'
 import tls from 'node:tls'
 import { URL } from 'node:url'
 
@@ -203,14 +204,13 @@ class TLSTransport implements Transport {
 
   async query(nameserver: string, request: Buffer): Promise<Buffer> {
     return new Promise((resolve, reject) => {
-      const host = nameserver.split(':')[0]
-      const port = Number(nameserver.split(':')[1]) || TLSTransport.DEFAULT_PORT
-      // SNI servername must not be an IP literal (TLS spec / Node rejects it).
-      // For IP-only DoT targets, omit servername; cert validation will go by IP SAN.
-      const isIp = /^(?:\d{1,3}\.){3}\d{1,3}$/.test(host) || host.includes(':')
-      const options = isIp
-        ? { host, port }
-        : { host, port, servername: host }
+      const [host = '', rawPort] = nameserver.split(':')
+      const port = Number(rawPort) || TLSTransport.DEFAULT_PORT
+      const options = {
+        host,
+        port,
+        ...(isIP(host) === 0 ? { servername: host } : {}),
+      }
 
       let timeoutId: ReturnType<typeof setTimeout>
 

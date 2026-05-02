@@ -20,5 +20,5 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true
   },
-  "exclude": ["node_modules", "pickier.config.ts", "docs"]
+  "exclude": ["node_modules", "dist", "docs", "pickier.config.ts"]
 }

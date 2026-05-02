@@ -27,10 +27,11 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/src/index.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     }
   },
-  "module": "./dist/src/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
     "dnsx": "./dist/bin/cli.js"
@@ -56,6 +57,8 @@
     "changelog": "bunx logsmith --verbose",
     "changelog:generate": "bunx logsmith --output CHANGELOG.md",
     "release": "bun --bun run changelog:generate && bunx --bun bumpx prompt --recursive",
+    "release:patch": "bunx --bun bumpx patch",
+    "publish:patch": "bunx --bun bumpx patch --commit --tag --push",
     "postinstall": "bunx git-hooks",
     "typecheck": "bunx tsc --noEmit",
     "dev:docs": "bun --bun vitepress dev docs",
@@ -73,10 +76,10 @@
   },
   "devDependencies": {
     "@stacksjs/bunpress": "^0.1.4",
-    "@stacksjs/clapp": "^0.2.0",
     "@stacksjs/tlsx": "^0.10.0",
-    "better-dx": "^0.2.7",
+    "better-dx": "^0.2.12",
     "bumpp": "^10.3.1",
+    "@stacksjs/clapp": "^0.2.6",
     "picocolors": "^1.1.1"
   },
   "git-hooks": {
