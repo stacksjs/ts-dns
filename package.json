@@ -1,7 +1,7 @@
 {
   "name": "@stacksjs/dnsx",
   "type": "module",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A command-line & library DNS client. Like dig & dog, but for TypeScript.",
   "author": "Chris Breuer <chris@stacksjs.org>",
   "license": "MIT",
