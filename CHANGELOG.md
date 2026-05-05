@@ -89,11 +89,11 @@
 
 - Chris ([@chrisbbreuer](http://github.com/chrisbbreuer))
 
-
 # Changelog
+
 [Compare changes](https://github.com/stacksjs/dnsx/compare/v0.2.2...v0.2.3)
 
-### 🧹 Chores
+## 🧹 Chores
 
 - release v0.2.3 ([587993f](https://github.com/stacksjs/dnsx/commit/587993f)) _(by Chris <chrisbreuer93@gmail.com>)_
 - wip ([0d74c93](https://github.com/stacksjs/dnsx/commit/0d74c93)) _(by Chris <chrisbreuer93@gmail.com>)_
