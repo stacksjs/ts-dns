@@ -1,5 +1,36 @@
 # Changelog
 
+[Compare changes](https://github.com/stacksjs/dnsx/compare/v0.2.3...v0.2.4)
+
+## 🐛 Bug Fixes
+
+- **build**: emit dist/index.js so the package is importable at runtime ([abdf52e](https://github.com/stacksjs/dnsx/commit/abdf52e)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **scripts**: stop double-generating CHANGELOG on release ([89f431d](https://github.com/stacksjs/dnsx/commit/89f431d)) _(by Glenn Michael Torregosa <gtorregosa@gmail.com>)_
+
+## 🧹 Chores
+
+- release v0.2.4 ([ebc3f18](https://github.com/stacksjs/dnsx/commit/ebc3f18)) _(by Chris <chrisbreuer93@gmail.com>)_
+- upgrade to TypeScript 7 ([a71c5ed](https://github.com/stacksjs/dnsx/commit/a71c5ed)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **deps**: refresh bun.lock to pick up pickier 0.1.37 ([b855873](https://github.com/stacksjs/dnsx/commit/b855873)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: refresh bun.lock to pick up pickier 0.1.35 ([0892d32](https://github.com/stacksjs/dnsx/commit/0892d32)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: refresh bun.lock to pick up pickier 0.1.33 ([1086666](https://github.com/stacksjs/dnsx/commit/1086666)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: refresh bun.lock to pick up @stacksjs/logsmith 0.2.3 ([2b510ee](https://github.com/stacksjs/dnsx/commit/2b510ee)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: refresh bun.lock to pick up buddy-bot 0.9.20 ([19579e7](https://github.com/stacksjs/dnsx/commit/19579e7)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: bump better-dx to ^0.2.15 ([3bbf03d](https://github.com/stacksjs/dnsx/commit/3bbf03d)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **ci**: bump actions/checkout to v6, actions/cache to v5 ([800b34f](https://github.com/stacksjs/dnsx/commit/800b34f)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- auto-fix CHANGELOG markdown lint ([8856e10](https://github.com/stacksjs/dnsx/commit/8856e10)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- refresh bun.lock to pick up bun-plugin-dtsx@0.9.18 ([76165c7](https://github.com/stacksjs/dnsx/commit/76165c7)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+
+## ⏪ Reverts
+
+- keep staged-lint kebab + bunx gitlint shorthand ([9c48c3b](https://github.com/stacksjs/dnsx/commit/9c48c3b)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+
+## Contributors
+
+- _Chris <chrisbreuer93@gmail.com>_
+- _Glenn Michael Torregosa <gtorregosa@gmail.com>_
+- _glennmichael123 <gtorregosa@gmail.com>_
+
 ## v0.2.1...v0.2.1
 
 [compare changes](https://github.com/stacksjs/dnsx/compare/v0.2.1...v0.2.1)
