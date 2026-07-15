@@ -1,5 +1,16 @@
 # Changelog
 
+[Compare changes](https://github.com/stacksjs/dnsx/compare/v0.2.4...v0.2.5)
+
+## 🧹 Chores
+
+- release v0.2.5 ([8d37ea8](https://github.com/stacksjs/dnsx/commit/8d37ea8)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **pkg**: publint clean — sideEffects:false + executable bin shebang ([2b6fe51](https://github.com/stacksjs/dnsx/commit/2b6fe51)) _(by Chris <chrisbreuer93@gmail.com>)_
+
+## Contributors
+
+- _Chris <chrisbreuer93@gmail.com>_
+
 [Compare changes](https://github.com/stacksjs/dnsx/compare/v0.2.3...v0.2.4)
 
 ## 🐛 Bug Fixes
