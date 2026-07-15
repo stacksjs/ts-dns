@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import type { CLI } from "@stacksjs/clapp";
 import type { DnsOptions } from "../src/types";
 import process from "node:process";
