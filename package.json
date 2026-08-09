@@ -57,7 +57,7 @@
     "changelog": "bunx logsmith --verbose",
     "changelog:generate": "bunx logsmith --output CHANGELOG.md",
     "release": "bunx --bun bumpx prompt --recursive",
-    "release:patch": "bunx --bun bumpx patch",
+    "release:patch": "bunx --bun bumpx patch --commit --tag --push --yes",
     "publish:patch": "bunx --bun bumpx patch --commit --tag --push",
     "postinstall": "bunx git-hooks",
     "typecheck": "bunx tsc --noEmit",
@@ -72,7 +72,9 @@
     "zip:darwin-x64": "zip -j bin/dnsx-darwin-x64.zip bin/dnsx-darwin-x64",
     "zip:darwin-arm64": "zip -j bin/dnsx-darwin-arm64.zip bin/dnsx-darwin-arm64",
     "format": "bunx --bun pickier . --format",
-    "format:fix": "bunx --bun pickier . --format --write"
+    "format:fix": "bunx --bun pickier . --format --write",
+    "release:minor": "bunx --bun bumpx minor --commit --tag --push --yes",
+    "release:major": "bunx --bun bumpx major --commit --tag --push --yes"
   },
   "devDependencies": {
     "@stacksjs/bunpress": "^0.1.4",
