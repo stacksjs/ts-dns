@@ -1,3 +1,14 @@
+/**
+ * `sideEffects: false` is deliberately absent from package.json.
+ *
+ * With it, Bun 1.3.14 eliminates modules reached only through re-exports and
+ * still emits their names in the export list, so the bundle exports bindings
+ * that were never declared -- `error: "La" is not declared in this file`. It
+ * builds cleanly and throws on import, which is how @stacksjs/dnsx@0.2.3
+ * shipped. Verified by toggling that flag alone: 1 undeclared identifier with
+ * it, 0 without.
+ */
+
 import { Logger } from '@stacksjs/clarity'
 import { dts } from 'bun-plugin-dtsx'
 
