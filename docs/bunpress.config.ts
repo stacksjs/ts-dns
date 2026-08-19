@@ -1,10 +1,9 @@
-import type { BunpressConfig } from 'bunpress'
+import type { BunPressConfig } from '@stacksjs/bunpress'
 
-const config: BunpressConfig = {
-  name: 'dnsx',
+const config: BunPressConfig = {
+  title: 'dnsx',
   description: 'A command-line & library DNS client. Like dig & dog, but for TypeScript.',
-  theme: '@bunpress/theme-docs',
-  srcDir: './docs',
+  docsDir: './docs',
   outDir: './dist/docs',
   sidebar: [
     {
