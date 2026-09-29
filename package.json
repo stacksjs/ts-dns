@@ -56,9 +56,9 @@
     "lint:fix": "bunx --bun pickier . --fix",
     "changelog": "bunx logsmith --verbose",
     "changelog:generate": "bunx logsmith --output CHANGELOG.md",
-    "release": "bunx --bun bumpx prompt --recursive",
-    "release:patch": "bunx --bun bumpx patch --commit --tag --push --yes",
-    "publish:patch": "bunx --bun bumpx patch --commit --tag --push",
+    "release": "bunx --bun @stacksjs/bumpx prompt --recursive",
+    "release:patch": "bunx --bun @stacksjs/bumpx patch --commit --tag --push --yes",
+    "publish:patch": "bunx --bun @stacksjs/bumpx patch --commit --tag --push",
     "postinstall": "bunx git-hooks",
     "typecheck": "bunx tsc --noEmit",
     "dev:docs": "bun --bun vitepress dev docs",
@@ -73,8 +73,8 @@
     "zip:darwin-arm64": "zip -j bin/dnsx-darwin-arm64.zip bin/dnsx-darwin-arm64",
     "format": "bunx --bun pickier . --format",
     "format:fix": "bunx --bun pickier . --format --write",
-    "release:minor": "bunx --bun bumpx minor --commit --tag --push --yes",
-    "release:major": "bunx --bun bumpx major --commit --tag --push --yes"
+    "release:minor": "bunx --bun @stacksjs/bumpx minor --commit --tag --push --yes",
+    "release:major": "bunx --bun @stacksjs/bumpx major --commit --tag --push --yes"
   },
   "devDependencies": {
     "@stacksjs/bunpress": "^0.2.11",
