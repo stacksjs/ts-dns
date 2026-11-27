@@ -59,7 +59,7 @@
     "release": "bunx --bun @stacksjs/bumpx prompt --recursive",
     "release:patch": "bunx --bun @stacksjs/bumpx patch --commit --tag --push --yes",
     "publish:patch": "bunx --bun @stacksjs/bumpx patch --commit --tag --push",
-    "postinstall": "bunx bun-git-hooks",
+    "hooks:install": "bun-git-hooks",
     "typecheck": "bunx tsc --noEmit",
     "dev:docs": "bun --bun vitepress dev docs",
     "build:docs": "bun --bun vitepress build docs",
@@ -91,7 +91,7 @@
       },
       "autoRestage": true
     },
-    "commit-msg": "bunx gitlint --edit .git/COMMIT_EDITMSG"
+    "commit-msg": "bun x gitlint --edit \"$1\""
   },
   "overrides": {
     "typescript": "^7.0.2"

@@ -177,6 +177,9 @@ Please see our [releases](https://github.com/stacksjs/stacks/releases) page for 
 
 ## Contributing
 
+Run `bun install` in your checkout, then run `bun run hooks:install` to set up the contributor Git hooks.
+If you already installed them, use `bun run hooks:install --force` to refresh them.
+
 Please review the [Contributing Guide](https://github.com/stacksjs/contributing) for details.
 
 ## Community
