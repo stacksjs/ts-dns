@@ -298,7 +298,7 @@ export class DnsDecoder {
         }
         break
       case RecordType.TXT:
-        data = this.readString(length)
+        data = this.readTxt(length)
         break
       case RecordType.CNAME:
       case RecordType.NS:
@@ -368,14 +368,22 @@ export class DnsDecoder {
     return parts.join(':')
   }
 
-  private readString(length: number): string {
-    if (!this.canRead(length)) {
-      throw new Error('Out of bounds access')
+  private readTxt(length: number): string {
+    if (length === 0) {
+      throw new Error('TXT record has no character strings')
     }
 
-    const str = this.buffer.slice(this.offset, this.offset + length).toString()
-    this.offset += length
-    return str
+    const end = this.offset + length
+    const strings: Buffer[] = []
+    while (this.offset < end) {
+      const size = this.buffer.readUInt8(this.offset++)
+      if (size > end - this.offset) {
+        throw new Error('Invalid TXT character-string length')
+      }
+      strings.push(this.buffer.subarray(this.offset, this.offset + size))
+      this.offset += size
+    }
+    return Buffer.concat(strings).toString()
   }
 }
 
